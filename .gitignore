@@ -206,6 +206,11 @@ tempCodeRunnerFile.py
 # Ruff stuff:
 .ruff_cache/
 
+# Local app runtime artifacts
+logs/
+reports/
+data/chroma/
+
 # PyPI configuration file
 .pypirc
 
