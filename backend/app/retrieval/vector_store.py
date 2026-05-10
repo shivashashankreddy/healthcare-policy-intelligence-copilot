@@ -1,5 +1,5 @@
-from pathlib import Path
 import os
+from pathlib import Path
 
 os.environ.setdefault("USE_TF", "0")
 
@@ -8,7 +8,7 @@ from langchain_community.vectorstores import Chroma
 from langchain_core.documents import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-from app.config import Settings
+from app.core.config import Settings
 
 COLLECTION_NAME = "synthetic_healthcare_policy_docs"
 

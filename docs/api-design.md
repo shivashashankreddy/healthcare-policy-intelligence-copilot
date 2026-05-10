@@ -3,7 +3,7 @@
 Run locally:
 
 ```bash
-uvicorn app.main:app --reload
+uvicorn app.main:app --app-dir backend --reload
 ```
 
 ## GET /health

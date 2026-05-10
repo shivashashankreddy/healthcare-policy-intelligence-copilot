@@ -7,9 +7,9 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Settings(BaseSettings):
     app_name: str = "Healthcare Policy Intelligence Copilot"
     environment: str = "local"
-    data_dir: Path = Path("data")
-    policy_docs_dir: Path = Path("data/synthetic_policy_docs")
-    chroma_dir: Path = Path("data/chroma")
+    data_dir: Path = Path("backend/data")
+    policy_docs_dir: Path = Path("sample-data")
+    chroma_dir: Path = Path("backend/data/chroma")
     audit_log_path: Path = Path("logs/query_audit.jsonl")
     embedding_model_name: str = "sentence-transformers/all-MiniLM-L6-v2"
     retrieval_k: int = 4

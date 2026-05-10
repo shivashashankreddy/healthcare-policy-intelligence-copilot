@@ -1,9 +1,9 @@
 import json
 from pathlib import Path
 
-from app.config import Settings
-from app.rag import answer_query
-from app.schemas import EvaluationResponse, EvaluationResult, QueryRequest, Role
+from app.core.config import Settings
+from app.models.schemas import EvaluationResponse, EvaluationResult, QueryRequest, Role
+from app.services.rag_service import answer_query
 
 
 SAMPLE_QUESTIONS = [

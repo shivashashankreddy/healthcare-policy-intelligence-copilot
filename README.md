@@ -132,13 +132,13 @@ Create a virtual environment and install dependencies:
 ```bash
 python -m venv .venv
 .venv\Scripts\activate
-pip install -r requirements-dev.txt
+pip install -r backend/requirements-dev.txt
 ```
 
 Run the API:
 
 ```bash
-uvicorn app.main:app --reload
+uvicorn app.main:app --app-dir backend --reload
 ```
 
 Ingest synthetic policies on Windows PowerShell:
@@ -160,13 +160,13 @@ curl -X POST http://localhost:8000/query ^
 Run tests:
 
 ```bash
-pytest -q
+python -m pytest
 ```
 
 Run linting:
 
 ```bash
-ruff check .
+ruff check backend scripts
 ```
 
 ## Docker
@@ -191,11 +191,21 @@ This is intentionally simple for version 1. A production implementation would ad
 ## Repository Structure
 
 ```text
-app/                  FastAPI application and RAG modules
-data/                 Synthetic healthcare policy documents
-docs/                 Architecture, API, security, evaluation docs
+backend/
+  app/                FastAPI application package
+  app/api/            Route modules for health, ingestion, query, evaluation, and audit
+  app/core/           Configuration and security helpers
+  app/models/         Pydantic schemas
+  app/prompts/        Grounded answer prompt templates
+  app/retrieval/      Document loading, vector store, and retriever logic
+  app/services/       RAG, evaluation, guardrail, and audit services
+  tests/              Backend unit tests
+  Dockerfile          Backend container image
+sample-data/          Synthetic healthcare policy markdown files
+docs/                 Architecture, API design, evaluation, security, and deployment docs
 docs/adr/             Architecture decision records
-tests/                Unit tests
+scripts/              Local ingestion and evaluation scripts
+diagrams/             Mermaid architecture diagram
 .github/workflows/   GitHub Actions CI
 ```
 

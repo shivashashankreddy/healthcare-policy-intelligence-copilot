@@ -1,12 +1,15 @@
 services:
   healthcare-policy-copilot:
-    build: .
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
     ports:
       - "8000:8000"
     environment:
       HCPC_ENVIRONMENT: docker
-      HCPC_CHROMA_DIR: /app/data/chroma
+      HCPC_POLICY_DOCS_DIR: /app/sample-data
+      HCPC_CHROMA_DIR: /app/backend/data/chroma
       HCPC_AUDIT_LOG_PATH: /app/logs/query_audit.jsonl
     volumes:
       - ./logs:/app/logs
-      - ./data/chroma:/app/data/chroma
+      - ./backend/data/chroma:/app/backend/data/chroma

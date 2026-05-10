@@ -1,0 +1,13 @@
+flowchart TD
+    user["Healthcare operations user"] --> api["FastAPI backend"]
+    api --> role["Role-aware query mode"]
+    role --> retriever["Retriever"]
+    retriever --> vector["Chroma vector store"]
+    docs["Synthetic policy markdown"] --> ingest["Ingestion pipeline"]
+    ingest --> chunks["LangChain text chunks"]
+    chunks --> vector
+    vector --> citations["Source citations + confidence"]
+    citations --> guardrails["Guardrails and risk flags"]
+    guardrails --> answer["Grounded answer response"]
+    api --> audit["Sanitized JSONL audit log"]
+    evaluator["Evaluation script/API"] --> retriever

@@ -209,7 +209,7 @@ tempCodeRunnerFile.py
 # Local app runtime artifacts
 logs/
 reports/
-data/chroma/
+backend/data/chroma/
 
 # PyPI configuration file
 .pypirc

@@ -1,5 +1,5 @@
-from app.guardrails import evaluate_risks
-from app.schemas import RiskFlag
+from app.models.schemas import RiskFlag
+from app.services.guardrail_service import evaluate_risks
 
 
 def test_low_confidence_guardrail_flags_unsupported_answer():

@@ -1,4 +1,4 @@
-from app.schemas import Role
+from app.models.schemas import Role
 
 
 ROLE_INSTRUCTIONS = {

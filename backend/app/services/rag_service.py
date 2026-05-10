@@ -1,18 +1,14 @@
 from langchain_core.documents import Document
 
-from app.config import Settings
-from app.guardrails import cautious_answer, evaluate_risks
-from app.prompts import ANSWER_TEMPLATE, ROLE_INSTRUCTIONS
-from app.schemas import QueryRequest, QueryResponse, RiskFlag, SourceCitation
-from app.vector_store import get_vector_store
+from app.core.config import Settings
+from app.models.schemas import QueryRequest, QueryResponse, RiskFlag, SourceCitation
+from app.prompts.grounded_answer_prompt import ANSWER_TEMPLATE, ROLE_INSTRUCTIONS
+from app.retrieval.retriever import retrieve_policy_context
+from app.services.guardrail_service import cautious_answer, evaluate_risks
 
 
 def answer_query(request: QueryRequest, settings: Settings) -> QueryResponse:
-    vector_store = get_vector_store(settings)
-    docs_with_scores = vector_store.similarity_search_with_relevance_scores(
-        request.query,
-        k=settings.retrieval_k,
-    )
+    docs_with_scores = retrieve_policy_context(request.query, settings)
     citations = [_citation_from_doc(doc, score) for doc, score in docs_with_scores if score > 0]
     confidence = _aggregate_confidence([score for _, score in docs_with_scores])
     context = _format_context([doc for doc, _ in docs_with_scores])

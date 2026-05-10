@@ -1,7 +1,7 @@
 import json
 
-from app.audit import read_audit_events, write_audit_event
-from app.schemas import QueryRequest, QueryResponse, Role
+from app.models.schemas import QueryRequest, QueryResponse, Role
+from app.services.audit_service import read_audit_events, write_audit_event
 
 
 def test_audit_log_hashes_and_sanitizes_query(test_settings):

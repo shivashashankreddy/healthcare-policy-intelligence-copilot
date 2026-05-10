@@ -22,6 +22,8 @@ The Healthcare Policy Intelligence Copilot is a local-first RAG service for synt
 - Guardrails flag low retrieval confidence, missing citations, ambiguous policy language, and unsupported answers.
 - Audit logging writes JSONL records with hashed queries and sanitized previews.
 
+See `diagrams/architecture.mmd` for the Mermaid architecture diagram used to explain the system in interviews and portfolio walkthroughs.
+
 ## Request Flow
 
 ```text

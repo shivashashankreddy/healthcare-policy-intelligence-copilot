@@ -2,6 +2,18 @@
 
 The evaluation module runs sample role-aware questions against the synthetic corpus and checks whether expected source documents appear in citations.
 
+Run it through the API:
+
+```bash
+curl -X POST http://localhost:8000/evaluate
+```
+
+Or run the local script:
+
+```bash
+python scripts/run_evaluation.py
+```
+
 Outputs:
 
 - `reports/rag_evaluation.json`

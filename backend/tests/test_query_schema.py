@@ -1,7 +1,7 @@
 import pytest
 from pydantic import ValidationError
 
-from app.schemas import QueryRequest, Role
+from app.models.schemas import QueryRequest, Role
 
 
 def test_query_schema_accepts_supported_roles():

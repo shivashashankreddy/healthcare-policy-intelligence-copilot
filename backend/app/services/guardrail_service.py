@@ -1,4 +1,4 @@
-from app.schemas import RiskFlag, SourceCitation
+from app.models.schemas import RiskFlag, SourceCitation
 
 
 AMBIGUITY_TERMS = ["may", "case-by-case", "exceptions", "unless", "clinical judgment"]

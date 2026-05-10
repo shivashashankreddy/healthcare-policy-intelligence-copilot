@@ -2,8 +2,8 @@ import json
 import uuid
 from datetime import UTC, datetime
 
-from app.schemas import AuditEvent, QueryRequest, QueryResponse
-from app.security import hash_query, sanitize_query_preview
+from app.core.security import hash_query, sanitize_query_preview
+from app.models.schemas import AuditEvent, QueryRequest, QueryResponse
 
 
 def write_audit_event(request: QueryRequest, response: QueryResponse, audit_log_path) -> str:

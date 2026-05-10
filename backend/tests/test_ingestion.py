@@ -1,5 +1,5 @@
-from app.document_loader import load_synthetic_documents
-from app.vector_store import chunk_documents
+from app.retrieval.document_loader import load_synthetic_documents
+from app.retrieval.vector_store import chunk_documents
 
 
 def test_loads_and_chunks_synthetic_documents(test_settings):
